@@ -46,7 +46,7 @@ function playRound(playerSelection, computerSelection) {
 let playerWinTally = 0;
 let computerWinTally = 0;
 function game() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 2; i++) {
         let playerSelection = prompt("Enter your choice of rock paper scissors: ");
         console.log(playerSelection);
         let computerSelection = getComputerChoice().toLowerCase();
@@ -54,13 +54,16 @@ function game() {
         playerSelection = playerSelection.toLowerCase();
         console.log(playerSelection);
         let roundResult = playRound(playerSelection, computerSelection);
+        tally(roundResult);
+        console.log(playerWinTally + ' and computer tally ' + computerWinTally);
+        
     }
 }
 
 function tally(roundWinner) {
-    if (roundResult == player) {
+    if (roundWinner == 'player') {
         playerWinTally += 1;
-    } else if (roundResult == 'computer') {
+    } else if (roundWinner == 'computer') {
         computerWinTally += 1;
     }
 }
