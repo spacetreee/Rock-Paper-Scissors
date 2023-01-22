@@ -13,22 +13,31 @@ function getComputerChoice() {
 
 //take user input and compare user input vs computer input and declare result
 function playRound(playerSelection, computerSelection) {
+    //make player's entry case insensitive
     computerSelection = computerSelection.toLowerCase();
     playerSelection = playerSelection.toLowerCase();
+    let winner;
     if (playerSelection == 'rock' && computerSelection == 'paper') {
-        return 'You lose!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
+        winner = 'computer';
+        return winner;
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        return 'You win!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
+        winner = 'player';
+        return winner;
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-        return 'You lose!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
+        winner = 'computer';
+        return winner;
     } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-        return 'You win!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
+        winner = 'player';
+        return winner;
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-        return 'You lose!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
+        winner = 'computer';
+        return winner;
     } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-        return 'You win!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
+        winner = 'player';
+        return winner;
     } else {
-        return 'You tied!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
+        winner = 'none';
+        return winner;
     }
 }
 
