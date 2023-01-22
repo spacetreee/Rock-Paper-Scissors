@@ -37,7 +37,7 @@ function playRound(playerSelection, computerSelection) {
         winner = 'player';
         return winner;
     } else {
-        winner = 'none';
+        winner = 'No one';
         return winner;
     }
 }
@@ -49,12 +49,10 @@ let gameWinner;
 function game() {
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("Enter your choice of rock paper scissors: ");
-        console.log(playerSelection);
         let computerSelection = getComputerChoice().toLowerCase();
-        console.log(computerSelection);
         playerSelection = playerSelection.toLowerCase();
-        console.log(playerSelection);
         let roundResult = playRound(playerSelection, computerSelection);
+        console.log(roundResult + " is the round winner");
         tally(roundResult);
         console.log(playerWinTally + ' and computer tally ' + computerWinTally);
     }
