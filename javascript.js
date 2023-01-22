@@ -7,34 +7,33 @@ function getComputerChoice() {
         case 1:
             return 'Paper';
         case 2:
-            return 'Scissor';
+            return 'Scissors';
     }
 }
-//assign computer choice to variable
-let computerSelection = getComputerChoice();
 
-//take user input and compare user input vs computer input
+//take user input and compare user input vs computer input and declare result
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection == 'rock' && computerSelection == 'paper') {
-        return 'You lose!' + ' Your selection:' + playerSelection + " Computer's selection: " + computerSelection;
+        return 'You lose!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        return 'You win!' + ' Your selection:' + playerSelection + " Computer's selection: " + computerSelection;
+        return 'You win!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-        return 'You lose!' + ' Your selection:' + playerSelection + " Computer's selection: " + computerSelection;
+        return 'You lose!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
     } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-        return 'You win!' + ' Your selection:' + playerSelection + " Computer's selection: " + computerSelection;
+        return 'You win!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-        return 'You lose!' + ' Your selection:' + playerSelection + " Computer's selection: " + computerSelection;
+        return 'You lose!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
     } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-        return 'You win!' + ' Your selection:' + playerSelection + " Computer's selection: " + computerSelection;
+        return 'You win!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
     } else {
-        return 'You tied!';
+        return 'You tied!' + ' Your selection: ' + playerSelection + " Computer's selection: " + computerSelection;
     }
 }
 
-
-//declare winner 
+function game () {
+    
+}
 
 //repeat entire game for 5 rounds and keep track who won each timed
