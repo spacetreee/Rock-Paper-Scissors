@@ -17,6 +17,7 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
     playerSelection = playerSelection.toLowerCase();
     let winner;
+    
     if (playerSelection == 'rock' && computerSelection == 'paper') {
         winner = 'computer';
         return winner;
