@@ -33,7 +33,18 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game () {
-    
+    let playerWinTally = 0;
+    let computerWinTally = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Enter your choice of rock paper scissors: ");
+        console.log(playerSelection);
+        let computerSelection = getComputerChoice().toLowerCase();
+        console.log(computerSelection);
+        playerSelection = playerSelection.toLowerCase();
+        console.log(playerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+    }
+
 }
 
 //repeat entire game for 5 rounds and keep track who won each timed
