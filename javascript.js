@@ -17,7 +17,7 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
     playerSelection = playerSelection.toLowerCase();
     let winner;
-    
+
     if (playerSelection == 'rock' && computerSelection == 'paper') {
         winner = 'computer';
         return winner;
@@ -42,9 +42,10 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game () {
-    let playerWinTally = 0;
-    let computerWinTally = 0;
+//repeat entire game for 5 rounds and keep track who won each timed
+let playerWinTally = 0;
+let computerWinTally = 0;
+function game() {
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("Enter your choice of rock paper scissors: ");
         console.log(playerSelection);
@@ -52,9 +53,14 @@ function game () {
         console.log(computerSelection);
         playerSelection = playerSelection.toLowerCase();
         console.log(playerSelection);
-        console.log(playRound(playerSelection, computerSelection));
+        let roundResult = playRound(playerSelection, computerSelection);
     }
-
 }
 
-//repeat entire game for 5 rounds and keep track who won each timed
+function tally(roundWinner) {
+    if (roundResult == player) {
+        playerWinTally += 1;
+    } else if (roundResult == 'computer') {
+        computerWinTally += 1;
+    }
+}
