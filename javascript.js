@@ -54,7 +54,8 @@ function game() {
         let roundResult = playRound(playerSelection, computerSelection);
         console.log(roundResult + " is the round winner");
         tally(roundResult);
-        console.log(playerWinTally + ' and computer tally ' + computerWinTally);
+        console.log('Player selection: ' + playerSelection + ' Computer selection: ' + computerSelection);
+        console.log('player tally is ' + playerWinTally + ' and computer tally ' + computerWinTally);
     }
     gameWinner = declareWinner(playerWinTally, computerWinTally);
     console.log(gameWinner + ' is the winner!');
