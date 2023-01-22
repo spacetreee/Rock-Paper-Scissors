@@ -42,12 +42,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//repeat entire game for 5 rounds and keep track who won each timed
+//repeat entire game for 5 rounds and declare ultimate winner
 let playerWinTally = 0;
 let computerWinTally = 0;
 let gameWinner;
 function game() {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("Enter your choice of rock paper scissors: ");
         console.log(playerSelection);
         let computerSelection = getComputerChoice().toLowerCase();
@@ -62,6 +62,7 @@ function game() {
     console.log(gameWinner + ' is the winner!');
 }
 
+//count the number of wins each player has in 5 rounds
 function tally(roundWinner) {
     if (roundWinner == 'player') {
         playerWinTally += 1;
@@ -70,6 +71,7 @@ function tally(roundWinner) {
     }
 }
 
+//check which of the two has more wins
 function declareWinner(playerWinTally, computerWinTally) {
     if (playerWinTally > computerWinTally) {
         gameWinner = 'player';
