@@ -11,13 +11,17 @@ function getComputerChoice() {
     }
 }
 
+const div = document.querySelector('div');
+const computerSelection2 = document.createElement('div');
+div.appendChild(computerSelection2);
+
 //take user input and compare user input vs computer input and declare result
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection = getComputerChoice()) {
     //make player's entry case insensitive
+    computerSelection2.textContent = computerSelection;
     computerSelection = computerSelection.toLowerCase();
     playerSelection = playerSelection.toLowerCase();
     let winner;
-
     if (playerSelection == 'rock' && computerSelection == 'paper') {
         winner = 'computer';
         return winner;
@@ -42,7 +46,21 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//repeat entire game for 5 rounds and declare ultimate winner
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach( button => {
+    button.addEventListener('click', () => {
+        div.textContent = playRound(button.id);
+        console.log(div.textContent);
+    }
+    );
+})
+
+
+
+
+
+/* //repeat entire game for 5 rounds and declare ultimate winner
 let playerWinTally = 0;
 let computerWinTally = 0;
 let gameWinner;
@@ -59,7 +77,7 @@ function game() {
     }
     gameWinner = declareWinner(playerWinTally, computerWinTally);
     console.log(gameWinner + ' is the winner!');
-}
+} */
 
 //count the number of wins each player has in 5 rounds
 function tally(roundWinner) {
