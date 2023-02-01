@@ -16,7 +16,7 @@ const computerSelection2 = document.createElement('div');
 div.appendChild(computerSelection2);
 
 //take user input and compare user input vs computer input and declare result
-function playRound(playerSelection, computerSelection = getComputerChoice()) {
+function playRound(playerSelection, computerSelection) {
     //make player's entry case insensitive
     computerSelection2.textContent = computerSelection;
     computerSelection = computerSelection.toLowerCase();
@@ -53,17 +53,17 @@ let roundResult;
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach( button => {
-    button.addEventListener('click', () => {
-        div.textContent = playRound(button.id);
-        roundResult = div.textContent;
-        tally(roundResult);
-        gameWinner = declareWinner(playerWinTally, computerWinTally);
-        console.log('Player selection: ' + button.id + ' Computer selection: ');
-        console.log('player tally is ' + playerWinTally + ' and computer tally ' + computerWinTally);
-    }
-    );
+    button.addEventListener('click', () => listenerAction(button, getComputerChoice()));
 })
 
+function listenerAction(button, computerSelection) {
+    div.textContent = playRound(button.id, computerSelection);
+    roundResult = div.textContent;
+    tally(roundResult);
+    gameWinner = declareWinner(playerWinTally, computerWinTally);
+    console.log('Player selection: ' + button.id + ' Computer selection: ' + computerSelection);
+    console.log('play1er tally is ' + playerWinTally + ' and computer tally ' + computerWinTally);
+}
 
 //count the number of wins each player has in 5 rounds
 function tally(roundWinner) {
