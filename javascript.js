@@ -45,7 +45,6 @@ function playRound(playerSelection, computerSelection) {
 
 let playerWinTally = 0;
 let computerWinTally = 0;
-let gameWinner;
 let roundResult;
 
 const buttons = document.querySelectorAll('button');
@@ -54,8 +53,7 @@ buttons.forEach( button => {
 })
 
 function listenerAction(button, computerSelection) {
-    div.textContent = playRound(button.id, computerSelection);
-    roundResult = div.textContent;
+    roundResult = playRound(button.id, computerSelection);
     tally(roundResult);
     gameWinner = declareWinner(playerWinTally, computerWinTally);
     const tallyContainer = document.querySelector('#tally');
@@ -88,21 +86,15 @@ function declareWinner(playerScore, computerScore) {
         container.append(divMessage);
         playerWinTally = 0;
         computerWinTally = 0;
-        gameWinner = 'player';
-        return gameWinner;
     } else if (playerScore < 5 && computerScore == 5) {
         divMessage.textContent = 'The winner is the computer!';
         container.append(divMessage);
         playerWinTally = 0;
-        computerWinTally = 0;
-        gameWinner = 'computer';
-        return gameWinner;
+        computerWinTally = 0;;
     } else if (playerScore == 5 && computerScore == 5){
         divMessage.textContent = 'No one is the winner!';
         container.append(divMessage);
         playerWinTally = 0;
         computerWinTally = 0;
-        gameWinner = 'No one';
-        return gameWinner;
     }
 }
