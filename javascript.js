@@ -50,19 +50,20 @@ let roundResult;
 const buttons = document.querySelectorAll('button');
 buttons.forEach( button => {
     button.addEventListener('click', () => listenerAction(button, getComputerChoice()));
-})
+});
+
+const tallyContainer = document.querySelector('#tally');
+const tallyMessage = document.createElement('div');
+const selectionMessage = document.createElement('div');
+tallyContainer.append(tallyMessage);
+tallyContainer.append(selectionMessage);
 
 function listenerAction(button, computerSelection) {
     roundResult = playRound(button.id, computerSelection);
     tally(roundResult);
     gameWinner = declareWinner(playerWinTally, computerWinTally);
-    const tallyContainer = document.querySelector('#tally');
-    const tallyMessage = document.createElement('div');
     tallyMessage.textContent = 'Your score is ' + playerWinTally + ' and computer\'s score is ' + computerWinTally;
-    tallyContainer.append(tallyMessage);
-    const selectionMessage = document.createElement('div');
     selectionMessage.textContent = 'You picked: ' + button.id + '  Computer picked: ' + computerSelection.toLowerCase(); 
-    tallyContainer.append(selectionMessage);
     if (!divMessage.textContent) {
         divMessage.remove();
     }
