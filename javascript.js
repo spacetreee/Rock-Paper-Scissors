@@ -103,7 +103,7 @@ function declareWinner(playerWinTally, computerWinTally) {
         computerWinTally = 0;
         gameWinner = 'computer';
         return gameWinner;
-    } else {
+    } else if (playerWinTally == 5 && computerWinTally == 5){
         const container = document.querySelector('#results');
         const divMessage = document.createElement('div');
         divMessage.textContent = 'No one is the winner!';
