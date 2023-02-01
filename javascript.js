@@ -75,8 +75,8 @@ function tally(roundWinner) {
 }
 
 //check which of the two has more wins
-function declareWinner(playerWinTally, computerWinTally) {
-    if (playerWinTally == 5 && computerWinTally < 5) {
+function declareWinner(playerScore, computerScore) {
+    if (playerScore == 5 && computerScore < 5) {
         const container = document.querySelector('#results');
         const divMessage = document.createElement('div');
         divMessage.textContent = 'The winner is the player!';
@@ -84,8 +84,9 @@ function declareWinner(playerWinTally, computerWinTally) {
         playerWinTally = 0;
         computerWinTally = 0;
         gameWinner = 'player';
+        console.log(playerScore + ' ' + computerScore);
         return gameWinner;
-    } else if (playerWinTally < 5 && computerWinTally == 5) {
+    } else if (playerScore < 5 && computerScore == 5) {
         const container = document.querySelector('#results');
         const divMessage = document.createElement('div');
         divMessage.textContent = 'The winner is the computer!';
@@ -93,8 +94,9 @@ function declareWinner(playerWinTally, computerWinTally) {
         playerWinTally = 0;
         computerWinTally = 0;
         gameWinner = 'computer';
+        console.log(playerScore + ' ' + computerScore);
         return gameWinner;
-    } else if (playerWinTally == 5 && computerWinTally == 5){
+    } else if (playerScore == 5 && computerScore == 5){
         const container = document.querySelector('#results');
         const divMessage = document.createElement('div');
         divMessage.textContent = 'No one is the winner!';
@@ -102,6 +104,7 @@ function declareWinner(playerWinTally, computerWinTally) {
         playerWinTally = 0;
         computerWinTally = 0;
         gameWinner = 'No one';
+        console.log(playerScore + ' ' + computerScore);
         return gameWinner;
     }
 }
