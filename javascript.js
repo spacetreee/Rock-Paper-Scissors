@@ -61,8 +61,13 @@ function listenerAction(button, computerSelection) {
     roundResult = div.textContent;
     tally(roundResult);
     gameWinner = declareWinner(playerWinTally, computerWinTally);
-    console.log('Player selection: ' + button.id + ' Computer selection: ' + computerSelection);
-    console.log('play1er tally is ' + playerWinTally + ' and computer tally ' + computerWinTally);
+    const tallyContainer = document.querySelector('#tally');
+    const tallyMessage = document.createElement('div');
+    tallyMessage.textContent = 'Your score is ' + playerWinTally + ' and computer\'s score is ' + computerWinTally;
+    tallyContainer.append(tallyMessage);
+    const selectionMessage = document.createElement('div');
+    selectionMessage.textContent = 'You picked: ' + button.id + '  Computer picked: ' + computerSelection.toLowerCase(); 
+    tallyContainer.append(selectionMessage);
 }
 
 //count the number of wins each player has in 5 rounds
