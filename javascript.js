@@ -84,7 +84,6 @@ function declareWinner(playerScore, computerScore) {
         playerWinTally = 0;
         computerWinTally = 0;
         gameWinner = 'player';
-        console.log(playerScore + ' ' + computerScore);
         return gameWinner;
     } else if (playerScore < 5 && computerScore == 5) {
         const container = document.querySelector('#results');
@@ -94,7 +93,6 @@ function declareWinner(playerScore, computerScore) {
         playerWinTally = 0;
         computerWinTally = 0;
         gameWinner = 'computer';
-        console.log(playerScore + ' ' + computerScore);
         return gameWinner;
     } else if (playerScore == 5 && computerScore == 5){
         const container = document.querySelector('#results');
@@ -104,7 +102,6 @@ function declareWinner(playerScore, computerScore) {
         playerWinTally = 0;
         computerWinTally = 0;
         gameWinner = 'No one';
-        console.log(playerScore + ' ' + computerScore);
         return gameWinner;
     }
 }
