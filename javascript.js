@@ -60,19 +60,10 @@ buttons.forEach( button => {
         gameWinner = declareWinner(playerWinTally, computerWinTally);
         console.log('Player selection: ' + button.id + ' Computer selection: ');
         console.log('player tally is ' + playerWinTally + ' and computer tally ' + computerWinTally);
-        console.log(gameWinner)
     }
     );
 })
 
-
-function game() {
-    console.log(roundResult + " is the round winner");
-    tally(roundResult);
-    
-    gameWinner = declareWinner(playerWinTally, computerWinTally);
-    console.log(gameWinner + ' is the winner!');
-} 
 
 //count the number of wins each player has in 5 rounds
 function tally(roundWinner) {
