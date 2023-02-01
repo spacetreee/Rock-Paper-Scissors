@@ -46,38 +46,33 @@ function playRound(playerSelection, computerSelection = getComputerChoice()) {
     }
 }
 
+let playerWinTally = 0;
+let computerWinTally = 0;
+let gameWinner;
+let roundResult;
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach( button => {
     button.addEventListener('click', () => {
         div.textContent = playRound(button.id);
-        console.log(div.textContent);
+        roundResult = div.textContent;
+        tally(roundResult);
+        gameWinner = declareWinner(playerWinTally, computerWinTally);
+        console.log('Player selection: ' + button.id + ' Computer selection: ');
+        console.log('player tally is ' + playerWinTally + ' and computer tally ' + computerWinTally);
+        console.log(gameWinner)
     }
     );
 })
 
 
-
-
-
-/* //repeat entire game for 5 rounds and declare ultimate winner
-let playerWinTally = 0;
-let computerWinTally = 0;
-let gameWinner;
 function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Enter your choice of rock paper scissors: ");
-        let computerSelection = getComputerChoice().toLowerCase();
-        playerSelection = playerSelection.toLowerCase();
-        let roundResult = playRound(playerSelection, computerSelection);
-        console.log(roundResult + " is the round winner");
-        tally(roundResult);
-        console.log('Player selection: ' + playerSelection + ' Computer selection: ' + computerSelection);
-        console.log('player tally is ' + playerWinTally + ' and computer tally ' + computerWinTally);
-    }
+    console.log(roundResult + " is the round winner");
+    tally(roundResult);
+    
     gameWinner = declareWinner(playerWinTally, computerWinTally);
     console.log(gameWinner + ' is the winner!');
-} */
+} 
 
 //count the number of wins each player has in 5 rounds
 function tally(roundWinner) {
@@ -90,13 +85,31 @@ function tally(roundWinner) {
 
 //check which of the two has more wins
 function declareWinner(playerWinTally, computerWinTally) {
-    if (playerWinTally > computerWinTally) {
+    if (playerWinTally == 5 && computerWinTally < 5) {
+        const container = document.querySelector('#results');
+        const divMessage = document.createElement('div');
+        divMessage.textContent = 'The winner is the player!';
+        container.append(divMessage);
+        playerWinTally = 0;
+        computerWinTally = 0;
         gameWinner = 'player';
         return gameWinner;
-    } else if (playerWinTally < computerWinTally) {
+    } else if (playerWinTally < 5 && computerWinTally == 5) {
+        const container = document.querySelector('#results');
+        const divMessage = document.createElement('div');
+        divMessage.textContent = 'The winner is the computer!';
+        container.append(divMessage);
+        playerWinTally = 0;
+        computerWinTally = 0;
         gameWinner = 'computer';
         return gameWinner;
     } else {
+        const container = document.querySelector('#results');
+        const divMessage = document.createElement('div');
+        divMessage.textContent = 'No one is the winner!';
+        container.append(divMessage);
+        playerWinTally = 0;
+        computerWinTally = 0;
         gameWinner = 'No one';
         return gameWinner;
     }
