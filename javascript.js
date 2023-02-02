@@ -61,12 +61,9 @@ tallyContainer.append(selectionMessage);
 function listenerAction(button, computerSelection) {
     roundResult = playRound(button.id, computerSelection);
     tally(roundResult);
-    gameWinner = declareWinner(playerWinTally, computerWinTally);
     tallyMessage.textContent = 'Your score is ' + playerWinTally + ' and computer\'s score is ' + computerWinTally;
     selectionMessage.textContent = 'You picked: ' + button.id + '  Computer picked: ' + computerSelection.toLowerCase(); 
-    if (!divMessage.textContent) {
-        divMessage.remove();
-    }
+    gameWinner = declareWinner(playerWinTally, computerWinTally);
 }
 
 //count the number of wins each player has in 5 rounds
